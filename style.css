@@ -1,20 +1,206 @@
 /* reset */
 body { 
+  /* box */
   font-size: 0;
-  margin: 0;
-  padding: 0;
+  background-color: #DCCDB6;
+  /* new font */
+  font-family: noto-sans-cjk-kr, sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
+.wrap {
+  width: 375px;
+  height: 680px;
+  border: 1px blue solid;
+}
+
+main { border: 1px red solid; position: relative; }
+
+
+
+/* header */
+header {padding: 0 21px 0 27px; margin: 0 33px;}
+header > .headerWrap {
+  width: 50px;
+  height: 43px;
+  padding: 0 150px 0 128px;
+  position: relative;
+  display: flex;
+  align-items: center; /*justify-content와 혼동 주의*/
+}
+header > .headerWrap > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+header > .headerWrap > strong {
+  font-size: 18px;
+  line-height: 1.48;
+}
+header > .headerWrap > div {
+  position: absolute;
+  height: 24px;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+header > .headerWrap > div > img ~ img {
+  margin-left: 18px;
+}
+
+
+/* account */
+.account {
+  padding: 0 48px;
+}
+.account > .account__main {
+  width: 265px;
+  height: 141px;
+  padding: 14px;
+  border-radius: 12px;
+  background-color: #fff;
+  position: relative;
+}
+.account > .account__main > .accountNum { /* 만약 디자인 margin 값을 꼭 지키지 않아도 된다면 반응형을 위해서 auto처리로 해도되지 않나? */
+  display: block;
+  margin: 0 57px 16px 59px; /*계좌번호의 길이는 변할 수 있으니 flex가 낫지 않을까? */
+  width: 136px;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  color: #858585;
+  font-size: 14px;
+}
+.account > .account__main > .accountMoney{
+  display: block;
+  margin: 0 45px 16px 45px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+.account > .account__main > .accountMoney > .monetaryUnit{
+  font-size: 14px;
+  line-height: 1.5;
+}
+.account > .account__main > .send {
+  position: absolute;
+}
+.account > .account__main > .moneyGraph {}
+.account > .account__main > .moneyGraph > .budget {}
+.account > .account__main > .moneyGraph > .budget > .limit {}
+.account > .account__main > .moneyGraph > .budget > .expenditure {}
+.account > .account__main > .moneyGraph > .budget > .img {}
+.account > .account__main > .moneyGraph > .budget > .restMoney {}
+
+
+/* account ad */
+.account__ad {
+  margin: 24px 70px 21px 43px;
+  width: 262px;
+  height: 21px;
+}
+.account__ad > .banner {font-size: 14px;}
+.account__ad > strong {}
+.account__ad > a {margin-left: 6px;}
+
+
+
+/* contents */
+.contents {
+  background-color: pink;
+  width: 375px;
+  height: 383px;
+  overflow: hidden;
+  position: relative;
+}
+.contents > .contents__button {
+  width: 106px;
+  height: 17px;
+  border: 1px solid red;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -4px;
+  left: 35%;
+
+}
+.contents > .contents__button > .buttonIcon {
+  width: 48px;
+  height: 2px;
+  border: 1px solid blue;
+  background-color: #C4C4C4;
+  margin: auto;
+}
+
+.contents > .contents__moneybox {
+  background-color: hotpink;
+  width: 308px;
+  height: 49px;
+  margin: 21px auto 17px;
+  overflow: hidden;
+}
+.contents > .contents__moneybox > ul {
+  width: 455px;
+  height: 47px;
+  background-color: green;
+  display: flex;
+  justify-items: left;
+}
+.contents > .contents__moneybox > ul > li {}
+.contents > .contents__moneybox > ul > li ~ li {
+  margin-left: 13px;
+}
+.contents > .contents__moneybox > ul > li > .outBox {
+  width: 162px;
+  height: 47px;
+  background-color: springgreen;
+  font-size: 12px;
+}
+.contents > .contents__moneybox > ul > li > .outBox > .innerBox {
+  width: 97px;
+  height: 47px;
+  background-color: yellow;
+}
+.contents > .contents__moneybox > a {}
+
+/* contents__history */
+.contents__history {
+  background-color: rgb(189, 51, 74);
+  width: 375px;
+  height: 381px;}
+.contents__history > .date {}
+.contents__history > .sum {}
+.contents__history > .historyDetails {}
+
+
 /* nav */
-div > nav {}
-div > nav > ul {
+.wrap > nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.wrap > nav > ul {
   display: flex;
   width: 305px;
   height: 20px;
   background-color: #00BDB2;
-  padding: 28px 35px;}
+  padding: 28px 35px;
+  position: relative;
+}
 div > nav > ul > li {}
 div > nav > ul > li:first-child { margin-left: 13px; }
 div > nav > ul > li ~ li { margin-left: 60px; }
 div > nav > ul > li > a {}
 div > nav > ul > li > a > img{}
+div > nav > ul > li:last-child > a > img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
