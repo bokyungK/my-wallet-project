@@ -5,7 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="./style.css">
+
+  <script defer src="./script.js"></script>
 </head>
 <body>
   <div class="wrap">
@@ -23,56 +27,77 @@
       <section> 
         <h2>메인</h2>
         <header class="account__header">
-          <h3>계좌 이름</h3>
-          <img src="" alt="">
-          <span></span>
-          <div>
-            <img src="" alt="">
-            <img src="" alt="">
+          <div class="headerWrap">
+            <img src="./logos/profile.png" alt="프로필 이미지">
+            <strong>생활비</strong>
+            <div>
+              <img src="./logos/qr.png" alt="간편결제 아이콘">
+              <img src="./logos/search.png" alt="검색 아이콘">
+            </div>
           </div>
         </header>
+
         <div class="account">
           <h3>계좌 정보</h3>
           <div class="account__main">
-            <h4>계좌 상세 정보</h4>
-            <span></span>
-            <span></span>
-            <div class='send'></div>
+            <strong class="accountNum">355-673877-78773</strong>
+            <strong class="accountMoney">1,240,000<strong class="monetaryUnit">원</strong></strong>
+            <div class='send'>이체</div>
             <div class='moneyGraph'>
-              <div class='budget'>
+              <div class=''>
+                <div class='budget'></div>
                 <div class='limit'></div>
                 <div class='expenditure'></div>
+                <img src="" alt="">
+                <strong class="restMoney">5일동안 210,000 남음</strong>
               </div>
-            <img src="" alt="">
-            <span class="restMoney">5일동안 210,000 남음</span>
             </div>
           </div>
-          <div class="account_ad">
-            <h4>대출 광고</h4>
-            <span>지금 낮은 이자로 생활대출을 신청하세요!</span>
+        </div>
+
+        <div class="account__ad">
+          <h3>대출 광고</h3>
+          <div class="banner">
+            <strong>지금 낮은 이자로 생활대출을 신청하세요!</strong>
             <a href=".">Go</a>
           </div>
         </div>
+
+
+
         <div class="contents">
           <h3>계좌 내역</h3>
+          <div class="contents__button">
+            <div class="buttonIcon"></div>
+          </div>
           <div class="contents__moneybox">
             <h4>저금통</h4>
             <ul>
-              <li></li>
-              <li></li>
+              <li>
+                <div class="outBox">
+                  <strong>여행가자!</strong>
+                  <div class="innerBox"></div>
+                </div>
+              </li>
+              <li>
+                <div class="outBox">
+                  <strong>냉장고사기</strong>
+                  <div class="innerBox"></div>
+                </div>
+              </li>
             </ul>
             <a href=""></a>
           </div>
           <ul class="contents__history">
             <h4>거래 내역</h4>
             <li>
-              <span>날짜</span>
-              <span>지출합계</span>
-              <ul class="contents__historyDetails"></ul>
+              <strong class="date">날짜</strong>
+              <strong class="sum">지출합계</strong>
+              <ul class="historyDetails"></ul>
             </li>
             <li>
-              <span>날짜</span>
-              <span>지출합계</span>
+              <strong class="date">날짜</strong>
+              <strong  class="sum">지출합계</strong>
               <ul class="contents__historyDetails"></ul>
             </li>
           </ul>
