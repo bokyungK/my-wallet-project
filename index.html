@@ -31,8 +31,8 @@
             <img src="./logos/profile.png" alt="프로필 이미지">
             <strong>생활비</strong>
             <div>
-              <img src="./logos/qr.png" alt="간편결제 아이콘">
-              <img src="./logos/search.png" alt="검색 아이콘">
+              <img class="qr" src="./logos/qr.png" alt="간편결제 아이콘">
+              <img class="search" src="./logos/search.png" alt="검색 아이콘">
             </div>
           </div>
         </header>
@@ -42,15 +42,19 @@
           <div class="account__main">
             <strong class="accountNum">355-673877-78773</strong>
             <strong class="accountMoney">1,240,000<strong class="monetaryUnit">원</strong></strong>
-            <div class='send'>이체</div>
-            <div class='moneyGraph'>
-              <div class=''>
-                <div class='budget'></div>
-                <div class='limit'></div>
-                <div class='expenditure'></div>
-                <img src="" alt="">
-                <strong class="restMoney">5일동안 210,000 남음</strong>
+            <div class='send'><a href=".">이체</a></div>
+            <div class='moneyResult'>
+              <div class='moneyGraph'>
+                <div class='budget'>
+                  <div class='expenditure'>
+                      <div class="outer__limit">
+                        <div class="inner__limit"></div>
+                      </div>
+                  </div>
+                </div>
               </div>
+              <img src="./logos/mdi_bar_chart.png" alt="도표 아이콘">
+              <strong class="restMoney">5일동안 210,000 남음</strong>
             </div>
           </div>
         </div>
@@ -63,8 +67,6 @@
           </div>
         </div>
 
-
-
         <div class="contents">
           <h3>계좌 내역</h3>
           <div class="contents__button">
@@ -72,37 +74,57 @@
           </div>
           <div class="contents__moneybox">
             <h4>저금통</h4>
-            <ul>
+            <ul class="moneybox__slider">
               <li>
                 <div class="outBox">
-                  <strong>여행가자!</strong>
-                  <div class="innerBox"></div>
+                  <div class="goals">
+                    <strong class="goals__name">여행가자!</strong>
+                    <strong class="goals__money">842,200원</strong>
+                  </div>
+                  <div class="innerBox1"></div>
                 </div>
               </li>
               <li>
                 <div class="outBox">
-                  <strong>냉장고사기</strong>
-                  <div class="innerBox"></div>
+                  <div class="goals">
+                    <strong class="goals__name">냉장고사기</strong>
+                    <strong class="goals_money">142,200원</strong>
+                  </div>
+                  <div class="innerBox2"></div>
                 </div>
               </li>
+              <div class="addMoneybox">
+                <a href=""><img src="./logos/plus.png" alt=""></a>
+                <div>저금통 만들기</div>
+              </div>
             </ul>
-            <a href=""></a>
           </div>
           <ul class="contents__history">
             <h4>거래 내역</h4>
             <li>
-              <strong class="date">날짜</strong>
-              <strong class="sum">지출합계</strong>
-              <ul class="historyDetails"></ul>
+              <div class="dateNsum">
+                <strong class="date">날짜</strong>
+                <strong  class="sum">지출합계</strong>
+              </div>
+              <ul class="historyDetails">
+                <li></li>
+                <li></li>
+              </ul>
             </li>
             <li>
-              <strong class="date">날짜</strong>
-              <strong  class="sum">지출합계</strong>
-              <ul class="contents__historyDetails"></ul>
+              <div class="dateNsum">
+                <strong class="date">날짜</strong>
+                <strong  class="sum">지출합계</strong>
+              </div>
+              <ul class="historyDetails">
+                <li></li>
+              </ul>
             </li>
           </ul>
         </div>
       </section>
+      <section></section>
+      <section></section>
     </main>
   </div>
 </body>
