@@ -4,7 +4,6 @@ body {
   font-size: 0;
   width: 375px;
   height: 680px;
-  border: 1px solid red;
   /* new font */
   font-family: noto-sans-cjk-kr, sans-serif;
   font-weight: 500;
@@ -16,13 +15,14 @@ a {
   color: #000000;
 }
 
-.wrap {
+.wrap { 
   display: relative;
   margin-top: 12px;
   width: 375px;
-  height: 680px;
+  height: 756px;
+  box-sizing: border-box;
   background-color: #DCCDB6;
-  /* overflow: hidden; */
+  overflow: hidden;
   border: 1px solid black;
 }
 
@@ -198,10 +198,10 @@ header > .headerWrap > div > img ~ img {
 .account__ad > .banner > a { margin-left: 0px; text-decoration-line: underline; }
 /* magin left 정확히 조정 */
 
-/* contents */
+/* contents - 마진값 조절하기 */
 .contents {
   width: 375px;
-  height: 383px;
+  height: 637px;
     /* overflow: hidden; */
   position: relative;
   background-color: #F5F5F5;
@@ -301,7 +301,7 @@ header > .headerWrap > div > img ~ img {
 }
 
 
-/* contents__history */
+/* contents__history
 .contents__history {
   background-color: rgb(189, 51, 74);
   width: 302px;
@@ -330,17 +330,31 @@ header > .headerWrap > div > img ~ img {
   height: 34px;
   margin-bottom: 8px;
   background-color: gold;
-}
+  font-size: 18px;
+} */
 
+.contents__history {
+  width: 303px;
+  height: 369px;
+  padding: 0 36px;
+}
+.contents__history > .dailyHistory {
+  width: 302px;
+  height: 709px;
+  font-size: 18px;
+  color: #444444;
+}
 
 /* nav */
 .wrap > nav {
   position: absolute;
+  top: 680px;
   bottom: 0;
   left: 0;
+  right: 0;
+  z-index: 1;
   width: 375px;
   height: 76px;
-  z-index: 1;
 }
 .wrap > nav > ul {
   display: flex;
@@ -348,7 +362,7 @@ header > .headerWrap > div > img ~ img {
   height: 20px;
   background-color: #00BDB2;
   padding: 28px 35px;
-  position: relative;
+  align-items: center;
 }
 div > nav > ul > li {}
 div > nav > ul > li:first-child { margin-left: 13px; }
@@ -356,9 +370,5 @@ div > nav > ul > li ~ li { margin-left: 60px; }
 div > nav > ul > li > a {}
 div > nav > ul > li > a > img{}
 div > nav > ul > li:last-child > a > img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
 }
 
