@@ -2,48 +2,75 @@
 body { 
   /* box */
   font-size: 0;
-  background-color: #DCCDB6;
+  width: 375px;
+  height: 680px;
+  border: 1px solid red;
   /* new font */
   font-family: noto-sans-cjk-kr, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
-.wrap {
-  width: 375px;
-  height: 680px;
-  border: 1px blue solid;
+a {
+  text-decoration-line: none;
+  color: #000000;
 }
 
-main { border: 1px red solid; position: relative; }
-
+.wrap {
+  display: relative;
+  margin-top: 12px;
+  width: 375px;
+  height: 680px;
+  background-color: #DCCDB6;
+  /* overflow: hidden; */
+  border: 1px solid black;
+}
 
 
 /* header */
-header {padding: 0 21px 0 27px; margin: 0 33px;}
+header {
+  padding: 0 21px 0 27px;
+  margin-bottom: 33px;
+}
 header > .headerWrap {
-  width: 50px;
-  height: 43px;
-  padding: 0 150px 0 128px;
   position: relative;
-  display: flex;
-  align-items: center; /*justify-content와 혼동 주의*/
+  width: 327px;
+  height: 43px;
 }
 header > .headerWrap > img {
   position: absolute;
   top: 0;
   left: 0;
+  width: 43px;
+  height: 43px;
 }
 header > .headerWrap > strong {
+  display: block;
+  width: 50px;  /* 원래 49여야됨 */
+  height: 100%;
+  padding: 0 150px 0 128px;
   font-size: 18px;
-  line-height: 1.48;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
 }
 header > .headerWrap > div {
   position: absolute;
-  height: 24px;
+  top: 9px;
   right: 0;
   display: flex;
   align-items: center;
+  margin: auto 0;
+  width: 66px;
+  height: 24px;
+}
+header > .headerWrap > div > .qr {
+  width: 24px;
+  height: 21px;
+}
+header > .headerWrap > div > .search {
+  width: 24px;
+  height: 24px;
 }
 header > .headerWrap > div > img ~ img {
   margin-left: 18px;
@@ -53,135 +80,266 @@ header > .headerWrap > div > img ~ img {
 /* account */
 .account {
   padding: 0 48px;
+  width: 279px; /* -95 padding */
+  height: 155px;
 }
 .account > .account__main {
-  width: 265px;
-  height: 141px;
-  padding: 14px;
-  border-radius: 12px;
-  background-color: #fff;
   position: relative;
-}
-.account > .account__main > .accountNum { /* 만약 디자인 margin 값을 꼭 지키지 않아도 된다면 반응형을 위해서 auto처리로 해도되지 않나? */
+  width: 267px; /* -12 padding, - */
+  height: 143px; /* -12 padding, - */
+  padding: 6px;
+  background-color: #fff;
+  border-radius: 12px;}
+
+.account > .account__main > .accountNum {
   display: block;
-  margin: 0 57px 16px 59px; /*계좌번호의 길이는 변할 수 있으니 flex가 낫지 않을까? */
-  width: 136px;
-  text-align: center;
-  line-height: 1.5;
-  letter-spacing: -0.2px;
+  width: 135px;
+  height: 21px;
+  margin: 8px 64px 16px 67px; /* -6 padding(except bottom)*/
   color: #858585;
   font-size: 14px;
+  line-height: 20px;
+  text-align: center;
 }
 .account > .account__main > .accountMoney{
   display: block;
-  margin: 0 45px 16px 45px;
-  text-align: center;
-  line-height: 1.5;
+  width: 160px;
+  height: 36px;
+  margin: 0 53px 16px 53px; /* -6 padding(except top, bottom)*/
   font-size: 24px;
+  line-height: 1.5;
+  text-align: center;
   letter-spacing: 2px;
 }
 .account > .account__main > .accountMoney > .monetaryUnit{
   font-size: 14px;
   line-height: 1.5;
+  letter-spacing: 2px;
 }
 .account > .account__main > .send {
   position: absolute;
+  width: 26px;
+  height: 21px;
+  top: 14px;
+  right: 17px;
+  font-size: 14px;
+  line-height: 1.5;
 }
-.account > .account__main > .moneyGraph {}
-.account > .account__main > .moneyGraph > .budget {}
-.account > .account__main > .moneyGraph > .budget > .limit {}
-.account > .account__main > .moneyGraph > .budget > .expenditure {}
-.account > .account__main > .moneyGraph > .budget > .img {}
-.account > .account__main > .moneyGraph > .budget > .restMoney {}
-
+.account > .account__main > .moneyResult {
+  position: relative;
+  width: 233px;
+  height: 17px;
+  margin: 0 39px 0 26px; /* -6 padding(except top, bottom)*/
+}
+.account > .account__main > .moneyResult > .moneyGraph {
+  position: relative;
+  display: flex;
+  width: 202px;
+  height: 17px;
+  margin-bottom: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.account > .account__main > .moneyResult > .moneyGraph > .budget {
+  width: 202px;
+  height: 6px;
+  background-color: #C4C4C4;
+}
+.account > .account__main > .moneyResult > .moneyGraph > .budget > .expenditure {
+  width: 128px; /* %로 변경 */
+  height: 100%;
+  background-color: #FFDB4C;
+  position: relative;
+}
+.account > .account__main > .moneyResult > .moneyGraph > .budget > .expenditure > .outer__limit {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  width: 8px;
+  height: 17px;
+  background-color: #FFF;
+}
+.account > .account__main > .moneyResult > .moneyGraph > .budget > .expenditure > .outer__limit > .inner__limit {
+  margin: auto;
+  width: 4px;
+  height: 100%;
+  background-color: #FF5F00;
+  border-radius: 2px;
+}
+.account > .account__main > .moneyResult > img {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: -5px;
+  right: 0;
+}
+.account > .account__main > .moneyResult > .restMoney {
+  display: block;
+  width: 158px;
+  height: 21px;
+  margin: 0 23px 0 29px;
+  color: #858585;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
 
 /* account ad */
 .account__ad {
-  margin: 24px 70px 21px 43px;
   width: 262px;
-  height: 21px;
+  height: 19px;
+  padding: 24px 70px 21px 43px;
 }
-.account__ad > .banner {font-size: 14px;}
-.account__ad > strong {}
-.account__ad > a {margin-left: 6px;}
-
-
+.account__ad > .banner {
+  font-size: 14px;
+  line-height: 1.5;
+  }
+.account__ad > .banner > strong {}
+.account__ad > .banner > a { margin-left: 0px; text-decoration-line: underline; }
+/* magin left 정확히 조정 */
 
 /* contents */
 .contents {
-  background-color: pink;
   width: 375px;
   height: 383px;
-  overflow: hidden;
+    /* overflow: hidden; */
   position: relative;
+  background-color: #F5F5F5;
+  border-radius: 30px 30px 0 0;
+  transition: 0.5s;
+  transform: translateY(0);
 }
 .contents > .contents__button {
-  width: 106px;
-  height: 17px;
-  border: 1px solid red;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
   position: absolute;
   top: -4px;
   left: 35%;
-
+  margin: 0 auto;
+  width: 106px;
+  height: 17px;
+  display: flex;
+  align-items: center;
 }
 .contents > .contents__button > .buttonIcon {
   width: 48px;
   height: 2px;
-  border: 1px solid blue;
   background-color: #C4C4C4;
   margin: auto;
 }
 
 .contents > .contents__moneybox {
-  background-color: hotpink;
   width: 308px;
   height: 49px;
   margin: 21px auto 17px;
   overflow: hidden;
+  position: relative;
 }
-.contents > .contents__moneybox > ul {
-  width: 455px;
+.contents > .contents__moneybox > .moneybox__slider {
+  width: 470px; /* 수정 */
   height: 47px;
-  background-color: green;
   display: flex;
   justify-items: left;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
-.contents > .contents__moneybox > ul > li {}
-.contents > .contents__moneybox > ul > li ~ li {
+.contents > .contents__moneybox > .moneybox__slider > li {
+}
+.contents > .contents__moneybox > .moneybox__slider > li ~ li {
   margin-left: 13px;
 }
-.contents > .contents__moneybox > ul > li > .outBox {
+.contents > .contents__moneybox > .moneybox__slider > li > .outBox {
+  position: relative;
   width: 162px;
   height: 47px;
-  background-color: springgreen;
+  border-radius: 6px;
+  background-color: #DADADA;
+  overflow: hidden;
   font-size: 12px;
 }
-.contents > .contents__moneybox > ul > li > .outBox > .innerBox {
+.contents > .contents__moneybox > .moneybox__slider > li > .outBox > .goals {
+  position: absolute;
+  top: 5px;
+  left: 13px;
+  bottom: 7px;
+  margin-bottom: 7px;
+  color: #FFF;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.contents > .contents__moneybox > .moneybox__slider > li > .outBox > .goals > .goals__name {
+  display: block;
+}
+.contents > .contents__moneybox > .moneybox__slider > li > .outBox > .goals > .goals__money {
+  display: block;
+}
+.contents > .contents__moneybox > .moneybox__slider > li > .outBox > .innerBox1 {
   width: 97px;
   height: 47px;
-  background-color: yellow;
+  background-color: #FF5F00;
 }
-.contents > .contents__moneybox > a {}
+.contents > .contents__moneybox > .moneybox__slider > li > .outBox > .innerBox2 {
+  width: 121px;
+  height: 47px;
+  background-color: #FEB700;
+}
+.contents > .contents__moneybox > .moneybox__slider > .addMoneybox {
+  margin-left: 17px;
+  font-size: 12px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  color: #FF5F00;
+}
+.contents > .contents__moneybox > .moneybox__slider > .addMoneybox > a {
+  display: flex;
+  align-items: center;
+}
+.contents > .contents__moneybox > .moneybox__slider > .addMoneybox > div {
+  margin-left: 5px;
+}
+
 
 /* contents__history */
 .contents__history {
   background-color: rgb(189, 51, 74);
-  width: 375px;
-  height: 381px;}
-.contents__history > .date {}
-.contents__history > .sum {}
-.contents__history > .historyDetails {}
+  width: 302px;
+  height: 637px;
+  padding: 0 37px 0 36px;
+  position: absolute;
+  top: 87px;
+  left: 0;
+}
+.contents__history > li {margin-bottom: 38px;}
+.contents__history > li > .dateNsum {
+  display: block;
+  width: 302px;
+  height: 21px;
+  margin-bottom: 8px;
+  background-color: green;
+}
+.contents__history > li > .dateNsum > .date {
+
+}
+.contents__history > li > .dateNsum > .sum {}
+.contents__history > li > .historyDetails {
+}
+.contents__history > li > .historyDetails > li {
+  width: 302px;
+  height: 34px;
+  margin-bottom: 8px;
+  background-color: gold;
+}
 
 
 /* nav */
 .wrap > nav {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 375px;
+  height: 76px;
   z-index: 1;
 }
 .wrap > nav > ul {
