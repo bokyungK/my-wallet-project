@@ -84,11 +84,11 @@ fetch('https://gyoheonlee.github.io/mobile-bank/data/bank-new.json')
 
 // json 데이터 담을 배열 상자 생성
 let count = 0;
-let historyDate = [];
-let historyIncome = [];
-let historyClassify = [];
-let histoyName = [];
-let historyPrice = [];
+let getDate = [];
+let getIncome = [];
+let getClassify = [];
+let getName = [];
+let getPrice = [];
 
 
 function start(obj, acount) {
@@ -97,71 +97,103 @@ function start(obj, acount) {
   console.log(count);
 
   for (i=0; i<count; i+=1) {
-    historyDate[i] = obj[count-i-1].date;
-    historyIncome[i] = obj[count-i-1].income;
-    historyClassify[i] = obj[count-i-1].classify;
-    histoyName[i] = obj[count-i-1].history;
-    historyPrice[i] = obj[count-i-1].price;
+    getDate[i] = obj[count-i-1].date;
+    getIncome[i] = obj[count-i-1].income;
+    getClassify[i] = obj[count-i-1].classify;
+    getName[i] = obj[count-i-1].history;
+    getPrice[i] = obj[count-i-1].price;
   }
-  console.log(historyDate, historyIncome, historyClassify,
-    histoyName, historyPrice);
   
-//해당하는 위치에 json 배열 데이터 적용
-  // 위치 만들기
-const dailyHistory = document.querySelector('.dailyHistory');
-const liEl = document.createElement('li');
-const divEl = document.createElement('div');
-const ulEl = document.createElement('ul');
+  console.log(getName)
+//해당하는 위치에 json 배열 데이터 
+//DOM
+const outUl = document.querySelector('.dailyHistory');
 
-dailyHistory.appendChild(liEl);
-const historyLi = dailyHistory.querySelector('li');
-historyLi.appendChild(divEl);
-const historyDiv = historyLi.querySelector('div');
-historyLi.appendChild(ulEl);
-const historyUl = historyLi.querySelector('ul');
-const liEl2 = document.createElement('li');
-historyUl.appendChild(liEl2);
-
-let countDate = []
-let j = 0;
-for (i=0; i<count; i+=1) {
-  if (historyDate[i] === historyDate[i+1]) {
-    countDate[j] += 1;
-  } else {
-    countDate[j] += 1;
-    j += 1;
-  }
-} console.log(countDate);
-};
-//내용 추가
-// for (i=0; i<count; i+=1) {
-//   if (historyDate[count] !== historyDate[count-1]) {
-//     historyDiv.textContent = historyDate[i];
-//   }
-//   else {
-//     for
-//     dailyHistory.appendChild(liEl);
-//     historyLi.appendChild(divEl);
-//   }
-//   }
-
-
-// .then( obj => { start(obj) } );
-
-// function start(photos) {
-//   const ulElem = document.createElement('ul');
-//   document.querySelector('#app').appendChild(ulElem);
-  
-//   for(let i = 0; i < 100; i++) {
-//     const liElem = document.createElement('li');
-//     const imgElem = document.createElement('img');
-//     const pElem = document.createElement('p');
-//     imgElem.src = photos[i].thumbnailUrl;
-//     pElem.textContent = photos[i].title;
-//     liElem.appendChild(imgElem);
-//     liElem.appendChild(pElem);
-//     ulElem.appendChild(liElem)
+// let dateArr = [0];
+// let arrIndex = 0;
+// function dateCount() {
+//   for (let k=0; k<count; k+=1) {
+//     // reset
+//     if (k === 0) {
+//       dateArr[arrIndex] += 1;
+//     } else if (getDate[k] === getDate[k-1]){
+//       dateArr[arrIndex] += 1;
+//     } else {
+//       arrIndex += 1;
+//       dateArr[arrIndex] = 0;
+//       dateArr[arrIndex] += 1;
+//     }
 //   }
 // }
+// dateCount();
 
-//foreach appen child?!
+
+let outerIndex = 0;
+let innerIndex = 0;
+for (let i=0; i<count; i+=1 ) {
+  if (i === 0) {
+    const liElem = document.createElement('li');
+    const UlElem = document.createElement('ul');
+    const outerDiv = document.createElement('div');
+    const innerDiv1 = document.createElement('div');
+    const innerDiv2 = document.createElement('div');
+
+    outUl.appendChild(liElem).className = 'dailyHistory__li';
+    outUl.children[0].appendChild(outerDiv).className = 'date__sum';
+    outUl.children[0].appendChild(UlElem).className = 'historyDetails';
+    outUl.children[0].children[0].appendChild(innerDiv1);
+    outUl.children[0].children[0].appendChild(innerDiv2);
+    outUl.children[0].children[0].children[0].className = 'date';
+    outUl.children[0].children[0].children[1].className = 'sum';
+    outUl.children[0].children[0].children[0].textContent = getDate[i];
+    
+    const liInner = document.createElement('li');
+    const priceDiv = document.createElement('div');
+    outUl.children[0].children[1].appendChild(liInner).className = 'historyDetails__li';
+    outUl.children[0].children[1].children[innerIndex].textContent = getName[i];
+    outUl.children[0].children[1].children[innerIndex].appendChild(priceDiv).className = 'historyDetails__price';
+    priceDiv.textContent = getPrice[i];
+
+    innerIndex += 1;
+
+  } else if (getDate[i] === getDate[i-1]) {
+    
+    const liInner = document.createElement('li');
+    const priceDiv = document.createElement('div');
+    outUl.children[outerIndex].children[1].appendChild(liInner).className = 'historyDetails__li';
+    outUl.children[outerIndex].children[1].children[innerIndex].textContent = getName[i];
+    outUl.children[outerIndex].children[1].children[innerIndex].appendChild(priceDiv).className = 'historyDetails__price';
+    priceDiv.textContent = getPrice[i];
+
+    innerIndex += 1;
+
+  } else {
+    outerIndex += 1;
+    innerIndex = 0;
+
+    const liElem = document.createElement('li');
+    const UlElem = document.createElement('ul');
+    const outerDiv = document.createElement('div');
+    const innerDiv1 = document.createElement('div');
+    const innerDiv2 = document.createElement('div');
+
+    outUl.appendChild(liElem).className = 'dailyHistory__li';
+    outUl.children[outerIndex].appendChild(outerDiv).className = 'date__sum';
+    outUl.children[outerIndex].appendChild(UlElem).className = 'historyDetails';
+    outUl.children[outerIndex].children[0].appendChild(innerDiv1);
+    outUl.children[outerIndex].children[0].appendChild(innerDiv2);
+    outUl.children[outerIndex].children[0].children[0].className = 'date';
+    outUl.children[outerIndex].children[0].children[1].className = 'sum';
+    outUl.children[outerIndex].children[0].children[0].textContent = getDate[i];
+
+    const liInner = document.createElement('li');
+    const priceDiv = document.createElement('div');
+    outUl.children[outerIndex].children[1].appendChild(liInner).className = 'historyDetails__li';
+    outUl.children[outerIndex].children[1].children[innerIndex].textContent = getName[i];
+    outUl.children[outerIndex].children[1].children[innerIndex].appendChild(priceDiv).className = 'historyDetails__price';
+    priceDiv.textContent = getPrice[i];
+    innerIndex += 1;
+  }
+}
+console.log(outUl);
+}
