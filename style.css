@@ -306,14 +306,20 @@ header > .headerWrap > div > img ~ img {
 
 /* history */
 .contents__history {
+  position: relative;
   width: 303px;
-  height: 369px;
+  height: 637px;
   padding: 0 36px;
+  overflow: hidden;
 }
 .contents__history > .dailyHistory {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
   width: 302px;
   color: #444444;
   background-color: #F5F5F5;
+  transition: 0.2s;
 }
 .contents__history > .dailyHistory > .dailyHistory__li {
   width: 302px;
@@ -386,4 +392,3 @@ div > nav > ul > li > a {}
 div > nav > ul > li > a > img{}
 div > nav > ul > li:last-child > a > img {
 }
-

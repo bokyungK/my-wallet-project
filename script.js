@@ -1,12 +1,5 @@
-// 구글 폰트 받아오는 함수
-(function(d) {
-  var config = {
-    kitId: 'zfl2fti',
-    scriptTimeout: 3000,
-    async: true
-  },
-  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-})(document);
+moneyBoxSlider();
+historySlider();
 
 
 // 클릭 이벤트 : content 이동
@@ -28,6 +21,7 @@ function move() {
 
 
 // 드래그 이벤트 : 저금통 슬라이드
+function moneyBoxSlider() {
 let slider = document.querySelector('.contents__moneybox');
 let innerSlider = document.querySelector('.moneybox__slider');
 let pressed = false;
@@ -71,6 +65,59 @@ function checkboundary() {
     innerSlider.style.left = `-${inner.width - outer.width}px`
   }
 };
+}
+
+
+// 드래그 이벤트 : 거래내역 슬라이드
+function historySlider() {
+let slider = document.querySelector('.contents__history');
+let innerSlider = document.querySelector('.dailyHistory');
+let pressed = false;
+let startY;
+let Y;
+
+slider.addEventListener("mousedown", e => {
+  pressed = true;
+  startY = e.offsetY - innerSlider.offsetTop;
+  slider.style.cursor = "grabbing";
+});
+
+slider.addEventListener("mouseenter", () => {
+  slider.style.cursor = "grab"
+});
+
+slider.addEventListener("mouseup", () => {
+  slider.style.cursor = "grab"
+});
+
+window.addEventListener("mouseup", () => {
+  pressed = false
+});
+
+slider.addEventListener("mousemove", e => {
+  if (!pressed) return
+  e.preventDefault()
+  Y = e.offsetY
+
+  innerSlider.style.top = `${Y - startY}px`
+  checkboundary()
+});
+
+function checkboundary() {
+  let outer = slider.getBoundingClientRect()
+  let inner = innerSlider.getBoundingClientRect()
+
+  if (parseInt(innerSlider.style.top) > 0) {
+    innerSlider.style.top = "0px"
+  } else if (inner.bottom < outer.bottom) {
+    innerSlider.style.top = `-${inner.width - outer.width}px`
+  }
+};
+
+
+  
+}
+
 
 
 // json 받아온 뒤 함수에 전달
