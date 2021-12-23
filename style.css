@@ -1,27 +1,27 @@
 /* reset */
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+/* html */
 body { 
   /* box */
   font-size: 0;
-  width: 375px;
-  height: 680px;
   /* new font */
-  font-family: noto-sans-cjk-kr, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 500;
   font-style: normal;
 }
-
 a {
   text-decoration-line: none;
   color: #000000;
 }
 
-.wrap { 
-  display: relative;
-  margin-top: 12px;
+.wrap {
+  position: relative; /*여기 속성명을 position으로 안하고 display로 써서 적용 안됨! */
+  margin: 0 auto;
+  padding-top: 12px;
   width: 375px;
   height: 756px;
-  box-sizing: border-box;
-  background-color: #DCCDB6;
+  background-color: #EEEBE5;
   overflow: hidden;
   border: 1px solid black;
 }
@@ -190,10 +190,11 @@ header > .headerWrap > div > img ~ img {
   height: 19px;
   padding: 24px 70px 21px 43px;
 }
-.account__ad > .banner {
+.account__ad > .banner {  
   font-size: 14px;
   line-height: 1.5;
-  }
+  margin:
+}
 .account__ad > .banner > strong {}
 .account__ad > .banner > a { margin-left: 0px; text-decoration-line: underline; }
 /* magin left 정확히 조정 */
@@ -251,6 +252,8 @@ header > .headerWrap > div > img ~ img {
 }
 .contents > .contents__moneybox > .moneybox__slider > li > .outBox {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 162px;
   height: 47px;
   border-radius: 6px;
@@ -301,38 +304,7 @@ header > .headerWrap > div > img ~ img {
 }
 
 
-/* contents__history
-.contents__history {
-  background-color: rgb(189, 51, 74);
-  width: 302px;
-  height: 637px;
-  padding: 0 37px 0 36px;
-  position: absolute;
-  top: 87px;
-  left: 0;
-}
-.contents__history > li {margin-bottom: 38px;}
-.contents__history > li > .dateNsum {
-  display: block;
-  width: 302px;
-  height: 21px;
-  margin-bottom: 8px;
-  background-color: green;
-}
-.contents__history > li > .dateNsum > .date {
-
-}
-.contents__history > li > .dateNsum > .sum {}
-.contents__history > li > .historyDetails {
-}
-.contents__history > li > .historyDetails > li {
-  width: 302px;
-  height: 34px;
-  margin-bottom: 8px;
-  background-color: gold;
-  font-size: 18px;
-} */
-
+/* history */
 .contents__history {
   width: 303px;
   height: 369px;
@@ -340,22 +312,65 @@ header > .headerWrap > div > img ~ img {
 }
 .contents__history > .dailyHistory {
   width: 302px;
-  height: 709px;
-  font-size: 18px;
   color: #444444;
+  background-color: #F5F5F5;
 }
+.contents__history > .dailyHistory > .dailyHistory__li {
+  width: 302px;
+}
+.contents__history > .dailyHistory > .dailyHistory__li ~ .dailyHistory__li {
+  margin-top: 38px;
+}
+.contents__history > .dailyHistory > .dailyHistory__li > .date__sum {
+  width: 302px;
+  height: 21px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.contents__history > .dailyHistory > .dailyHistory__li > .date__sum > .date {}
+.contents__history > .dailyHistory > .dailyHistory__li > .date__sum > .sum {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto 0;
+  color:#B4B4B4;
+}
+.contents__history > .dailyHistory > .dailyHistory__li > .historyDetails {
+}
+.contents__history > .dailyHistory > .dailyHistory__li > .historyDetails > .historyDetails__li {
+  position: relative;
+  width: 302px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+
+  font-size: 18px;
+  line-height: 1.5;
+  padding-bottom: 7px;
+  font-weight: 400;
+  border-bottom: 1px solid #B4B4B4;
+}
+.contents__history > .dailyHistory > .dailyHistory__li > .historyDetails > .historyDetails__li > .historyDetails__price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 27px;
+  font-weight: 300;
+}
+
 
 /* nav */
 .wrap > nav {
   position: absolute;
-  top: 680px;
   bottom: 0;
-  left: 0;
   right: 0;
-  z-index: 1;
   width: 375px;
   height: 76px;
+  z-index: 1;
 }
+
 .wrap > nav > ul {
   display: flex;
   width: 305px;

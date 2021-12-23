@@ -89,6 +89,7 @@ let getIncome = [];
 let getClassify = [];
 let getName = [];
 let getPrice = [];
+let getPriceSum = [];
 
 
 function start(obj, acount) {
@@ -101,33 +102,17 @@ function start(obj, acount) {
     getIncome[i] = obj[count-i-1].income;
     getClassify[i] = obj[count-i-1].classify;
     getName[i] = obj[count-i-1].history;
-    getPrice[i] = obj[count-i-1].price;
+    //price에만 1000단위 기호 추가
+    getPrice[i] = obj[count-i-1].price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    getPriceSum[i] = obj[count-i-1].price;
   }
-  
-  console.log(getName)
+
 //해당하는 위치에 json 배열 데이터 
 //DOM
 const outUl = document.querySelector('.dailyHistory');
-
-// let dateArr = [0];
-// let arrIndex = 0;
-// function dateCount() {
-//   for (let k=0; k<count; k+=1) {
-//     // reset
-//     if (k === 0) {
-//       dateArr[arrIndex] += 1;
-//     } else if (getDate[k] === getDate[k-1]){
-//       dateArr[arrIndex] += 1;
-//     } else {
-//       arrIndex += 1;
-//       dateArr[arrIndex] = 0;
-//       dateArr[arrIndex] += 1;
-//     }
-//   }
-// }
-// dateCount();
-
-
+//변수
+let priceSum = 0; // 변하는 값이니까 let으로 선언해야함, 오타조심!
+//실행 함수
 let outerIndex = 0;
 let innerIndex = 0;
 for (let i=0; i<count; i+=1 ) {
@@ -152,7 +137,13 @@ for (let i=0; i<count; i+=1 ) {
     outUl.children[0].children[1].appendChild(liInner).className = 'historyDetails__li';
     outUl.children[0].children[1].children[innerIndex].textContent = getName[i];
     outUl.children[0].children[1].children[innerIndex].appendChild(priceDiv).className = 'historyDetails__price';
-    priceDiv.textContent = getPrice[i];
+    if (getIncome[i] === 'in') {
+      priceDiv.textContent = `+ ${getPrice[i]}`;
+      priceDiv.style.color = '#FF5F00';
+    } else {
+      priceDiv.textContent = getPrice[i];
+    };
+    priceSum = getPriceSum[0];
 
     innerIndex += 1;
 
@@ -163,7 +154,17 @@ for (let i=0; i<count; i+=1 ) {
     outUl.children[outerIndex].children[1].appendChild(liInner).className = 'historyDetails__li';
     outUl.children[outerIndex].children[1].children[innerIndex].textContent = getName[i];
     outUl.children[outerIndex].children[1].children[innerIndex].appendChild(priceDiv).className = 'historyDetails__price';
-    priceDiv.textContent = getPrice[i];
+    if (getIncome[i] === 'in') {
+      priceDiv.textContent = `+ ${getPrice[i]}`;
+      priceDiv.style.color = '#FF5F00';
+    } else {
+      priceDiv.textContent = getPrice[i];
+    };
+    priceSum += getPriceSum[i];
+    if (getDate[i] !== getDate[i+1]) {
+      let priceSumResult = priceSum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+      outUl.children[outerIndex].children[0].children[1].textContent = `${priceSumResult}원 지출`;
+    };
 
     innerIndex += 1;
 
@@ -191,9 +192,35 @@ for (let i=0; i<count; i+=1 ) {
     outUl.children[outerIndex].children[1].appendChild(liInner).className = 'historyDetails__li';
     outUl.children[outerIndex].children[1].children[innerIndex].textContent = getName[i];
     outUl.children[outerIndex].children[1].children[innerIndex].appendChild(priceDiv).className = 'historyDetails__price';
-    priceDiv.textContent = getPrice[i];
+    if (getIncome[i] === 'in') {
+      priceDiv.textContent = `+ ${getPrice[i]}`;
+      priceDiv.style.color = '#FF5F00'; // style 메소드 사용법 숙지!
+    } else {
+      priceDiv.textContent = getPrice[i];
+    }
+    priceSum = 0;
+    priceSum = getPriceSum[i];
+
     innerIndex += 1;
   }
 }
-console.log(outUl);
 }
+
+// date 개수 카운트 함수
+// let dateArr = [0];
+// let arrIndex = 0;
+// function dateCount() {
+//   for (let k=0; k<count; k+=1) {
+//     // reset
+//     if (k === 0) {
+//       dateArr[arrIndex] += 1;
+//     } else if (getDate[k] === getDate[k-1]){
+//       dateArr[arrIndex] += 1;
+//     } else {
+//       arrIndex += 1;
+//       dateArr[arrIndex] = 0;
+//       dateArr[arrIndex] += 1;
+//     }
+//   }
+// }
+// dateCount();
