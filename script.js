@@ -1,6 +1,24 @@
 moneyBoxSlider();
 historySlider();
 
+//계좌에 따라 색상 지정
+let sections = document.querySelectorAll('section');
+const countSections = sections.length;
+let colorArr = [['#FFDB4C', '#FF5F00', '#FEB700'],
+['#4C89FF','#55ACEE', '#005F59'],
+['#C64CFF', '#0A73C3', '#EEBA00']];
+
+for (i=0; i<countSections; i+=1) {
+  if (true){
+    const expenditure = sections[i].querySelector('.expenditure');
+    expenditure.style.backgroundColor = colorArr[i][1];
+    const innerBox1 = sections[i].querySelector('.innerBox1');
+    innerBox1.style.backgroundColor = colorArr[i][1];
+    const innerBox2 = sections[i].querySelector('.innerBox2');
+    innerBox2.style.backgroundColor = colorArr[i][2];
+}};
+
+
 
 // 클릭 이벤트 : content 이동
 const buttonEl = document.querySelector('.contents__button');
@@ -119,7 +137,6 @@ function checkboundary() {
 }
 
 
-
 // json 받아온 뒤 함수에 전달
 fetch('https://gyoheonlee.github.io/mobile-bank/data/bank-new.json')
 .then( response => response.json() )
@@ -162,6 +179,8 @@ let priceSum = 0; // 변하는 값이니까 let으로 선언해야함, 오타조
 //실행 함수
 let outerIndex = 0;
 let innerIndex = 0;
+let today = new Date();
+
 for (let i=0; i<count; i+=1 ) {
   if (i === 0) {
     const liElem = document.createElement('li');
@@ -178,7 +197,7 @@ for (let i=0; i<count; i+=1 ) {
     outUl.children[0].children[0].children[0].className = 'date';
     outUl.children[0].children[0].children[1].className = 'sum';
     outUl.children[0].children[0].children[0].textContent = getDate[i];
-    
+
     const liInner = document.createElement('li');
     const priceDiv = document.createElement('div');
     outUl.children[0].children[1].appendChild(liInner).className = 'historyDetails__li';
@@ -252,22 +271,3 @@ for (let i=0; i<count; i+=1 ) {
   }
 }
 }
-
-// date 개수 카운트 함수
-// let dateArr = [0];
-// let arrIndex = 0;
-// function dateCount() {
-//   for (let k=0; k<count; k+=1) {
-//     // reset
-//     if (k === 0) {
-//       dateArr[arrIndex] += 1;
-//     } else if (getDate[k] === getDate[k-1]){
-//       dateArr[arrIndex] += 1;
-//     } else {
-//       arrIndex += 1;
-//       dateArr[arrIndex] = 0;
-//       dateArr[arrIndex] += 1;
-//     }
-//   }
-// }
-// dateCount();

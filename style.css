@@ -15,14 +15,19 @@ a {
   color: #000000;
 }
 
+main {
+  display: flex;
+  justify-items: left;
+}
+
 .wrap {
   position: relative; /*여기 속성명을 position으로 안하고 display로 써서 적용 안됨! */
   margin: 0 auto;
   padding-top: 12px;
   width: 375px;
   height: 756px;
+  /* overflow: hidden; */
   background-color: #EEEBE5;
-  overflow: hidden;
   border: 1px solid black;
   
   /* prohibiting drag */
@@ -31,6 +36,9 @@ a {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+section {
+  background-color: #EEEBE5;;
 }
 
 
@@ -287,12 +295,12 @@ header > .headerWrap > div > img ~ img {
 .contents > .contents__moneybox > .moneybox__slider > li > .outBox > .innerBox1 {
   width: 97px;
   height: 47px;
-  background-color: #FF5F00;
+  /* background-color: #FF5F00; */
 }
 .contents > .contents__moneybox > .moneybox__slider > li > .outBox > .innerBox2 {
   width: 121px;
   height: 47px;
-  background-color: #FEB700;
+  /* background-color: #FEB700; */
 }
 .contents > .contents__moneybox > .moneybox__slider > .addMoneybox {
   margin-left: 17px;
