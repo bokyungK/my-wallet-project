@@ -15,9 +15,13 @@ a {
   color: #000000;
 }
 
-main {
+.sectionSlider {
+  position: absolute;
+  left: 0;
   display: flex;
   justify-items: left;
+  transition: 0.5s;
+  /* pointer-events: none; 이거 때문에 다른 슬라이드 동작 안함 ㅜㅜ*/
 }
 
 .wrap {
@@ -26,7 +30,7 @@ main {
   padding-top: 12px;
   width: 375px;
   height: 756px;
-  /* overflow: hidden; */
+  overflow: hidden;
   background-color: #EEEBE5;
   border: 1px solid black;
   
@@ -389,14 +393,14 @@ header > .headerWrap > div > img ~ img {
   right: 0;
   width: 375px;
   height: 76px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .wrap > nav > ul {
   display: flex;
   width: 305px;
   height: 20px;
-  background-color: #00BDB2;
+  background: linear-gradient(163.63deg, #00BDB2 11.35%, #C4E7B8 139.96%);
   padding: 28px 35px;
   align-items: center;
 }
@@ -406,4 +410,20 @@ div > nav > ul > li ~ li { margin-left: 60px; }
 div > nav > ul > li > a {}
 div > nav > ul > li > a > img{}
 div > nav > ul > li:last-child > a > img {
+}
+
+/* 사이드 버튼 */
+.leftSideButton {
+  position: absolute;
+  width: 30px;
+  height: 692px;
+  top: 10%;
+  left: 0;
+}
+.rightSideButton {
+  position: absolute;
+  width: 30px;
+  height: 692px;
+  top: 10%;
+  right: 0;
 }
