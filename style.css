@@ -32,7 +32,6 @@ a {
   height: 756px;
   overflow: hidden;
   background-color: #EEEBE5;
-  border: 1px solid black;
   
   /* prohibiting drag */
   -ms-user-select: none; 
