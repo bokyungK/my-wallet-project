@@ -4,14 +4,12 @@ const countSections = sections.length;
 let colorArr = [['#FFDB4C', '#FF5F00', '#FEB700'],['#4C89FF','#55ACEE', '#005F59'],['#C64CFF', '#0A73C3', '#EEBA00']];
 
 for (i=0; i<countSections; i+=1) {
-  if (true){
     const expenditure = sections[i].querySelector('.expenditure');
     expenditure.style.backgroundColor = colorArr[i][0];
     const innerBox1 = sections[i].querySelector('.innerBox1');
     innerBox1.style.backgroundColor = colorArr[i][1];
     const innerBox2 = sections[i].querySelector('.innerBox2');
     innerBox2.style.backgroundColor = colorArr[i][2];
-  }
 };
 
 
