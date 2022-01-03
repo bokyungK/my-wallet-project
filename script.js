@@ -22,28 +22,19 @@ leftButton.addEventListener('click', () => {
   if (getMain.style.left === '' || getMain.style.left === '0px') {
     // 받아온 값은 string이고 px을 제거한 뒤 숫자로 변환해야 다음 이동 거리와 연산이 가능하다!
     // 데이터 정확히 확인
-    // console.log(getMain.style.left);
-    // console.log(typeof getMain.style.left);
     return;
   } else {
     getMain.style.left = `${Number(getMain.style.left.replace('px', '')) + 375}px`;
     // 받아온 값은 string이고 px을 제거한 뒤 숫자로 변환해야 다음 이동 거리와 연산이 가능하다!
     // 데이터 정확히 확인
-    // console.log(getMain.style.left);
-    // console.log(typeof getMain.style.left);
-  }
 });
   // 오른쪽 이동
 rightButton.addEventListener('click', () => {
   if (getMain.style.left === '-750px')
   {
-    // console.log(getMain.style.left);
-    // console.log(typeof getMain.style.left);
     return;
   } else {
     getMain.style.left = `${Number(getMain.style.left.replace('px', '')) - 375}px`;
-    // console.log(getMain.style.left);
-    // console.log(typeof getMain.style.left);
   }
 })
 // style.left로 받아오는 데이터 값이 string인걸 몰라서 너무 오래걸렸고,
