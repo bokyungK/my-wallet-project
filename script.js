@@ -1,7 +1,7 @@
 //계좌에 따라 색상 지정
-let sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section');
 const countSections = sections.length;
-let colorArr = [['#FFDB4C', '#FF5F00', '#FEB700'],['#4C89FF','#55ACEE', '#005F59'],['#C64CFF', '#0A73C3', '#EEBA00']];
+const colorArr = [['#FFDB4C', '#FF5F00', '#FEB700'],['#4C89FF','#55ACEE', '#005F59'],['#C64CFF', '#0A73C3', '#EEBA00']];
 
 for (i=0; i<countSections; i+=1) {
     const expenditure = sections[i].querySelector('.expenditure');
@@ -27,6 +27,7 @@ leftButton.addEventListener('click', () => {
     getMain.style.left = `${Number(getMain.style.left.replace('px', '')) + 375}px`;
     // 받아온 값은 string이고 px을 제거한 뒤 숫자로 변환해야 다음 이동 거리와 연산이 가능하다!
     // 데이터 정확히 확인
+  }
 });
   // 오른쪽 이동
 rightButton.addEventListener('click', () => {
