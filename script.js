@@ -66,8 +66,8 @@ sections.forEach((section, index) => {
 
 // 드래그 이벤트 : 저금통 슬라이드
   sections.forEach((section, index) => {
-    let slider = sections[index].querySelector('.contents__moneybox');
-    let innerSlider = sections[index].querySelector('.moneybox__slider');
+    const slider = sections[index].querySelector('.contents__moneybox');
+    const innerSlider = sections[index].querySelector('.moneybox__slider');
     let pressed = false;
     let startX;
     let X;
@@ -114,8 +114,8 @@ sections.forEach((section, index) => {
 
 // 드래그 이벤트 : 거래내역 슬라이드
   sections.forEach((section, index) => {
-    let slider = sections[index].querySelector('.contents__history');
-    let innerSlider = sections[index].querySelector('.dailyHistory');
+    const slider = sections[index].querySelector('.contents__history');
+    const innerSlider = sections[index].querySelector('.dailyHistory');
     let pressed = false;
     let startY;
     let Y;
@@ -148,8 +148,8 @@ sections.forEach((section, index) => {
     });
 
     function checkboundary() {
-      let outer = slider.getBoundingClientRect()
-      let inner = innerSlider.getBoundingClientRect()
+      const outer = slider.getBoundingClientRect()
+      const inner = innerSlider.getBoundingClientRect()
 
       if (parseInt(innerSlider.style.top) > 0) {
         innerSlider.style.top = "0px"
